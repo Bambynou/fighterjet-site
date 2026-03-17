@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Classement des avions de chasse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+    <!-- Police CF Cracked Stone -->
+    <style>
+        @font-face {
+            font-family: "CFCrackedStone";
+            src: url("fonts/CFCrackedStone.ttf") format("truetype");
+        }
+    </style>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Black Ops One", sans-serif;
+            background: #f3f7fc;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* ===== HEADER + MENU ===== */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: #1d3557;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .menu-btn {
+            font-size: 2rem;
+            color: #ffffff;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .top-bar-title {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-left: 15px;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -260px;
+            width: 260px;
+            height: 100%;
+            background: #0b1b30;
+            color: #ffffff;
+            padding-top: 60px;
+            box-sizing: border-box;
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px 20px;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: "Black Ops One", sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .sidebar a:hover {
+            background: #1d3557;
+        }
+
+        /* ===== CONTENU PRINCIPAL ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: "CFCrackedStone", sans-serif;
+            font-weight: normal;
+            color: #000000;
+            text-align: center;
+            font-size: 4.5rem;
+            letter-spacing: 2px;
+            line-height: 0.9;
+            position: relative;
+            z-index: 3;
+        }
+
+        .title-wrapper {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+            height: 320px;
+        }
+
+        .title-bg-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 380px;
+            transform: translate(-50%, -50%);
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .title-bg-left {
+            position: absolute;
+            top: 50%;
+            left: 15%;
+            width: 450px;
+            height: 100%;
+            object-fit: cover;
+            object-position: right center;
+            transform: translate(-50%, -50%);
+            opacity: 0.50;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .title-bg-right {
+            position: absolute;
+            top: 50%;
+            right: 15%;
+            width: 450px;
+            height: 100%;
+            object-fit: cover;
+            object-position: left center;
+            transform: translate(50%, -50%);
+            opacity: 0.50;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ===== TRUMP AJOUTÉ ===== */
+        .title-bg-trump {
+            position: absolute;
+            top: 68%;       /* plus bas que Macron */
+            left: 5%;       /* légèrement plus à gauche */
+            width: 300px;
+            transform: translate(-50%, -50%);
+            opacity: 0.20;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        h2 {
+            margin-top: 30px;
+            font-size: 1.6rem;
+            color: #1d3557;
+        }
+
+        h2 a {
+            color: #1d3557;
+            text-decoration: none;
+        }
+
+        h2 a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .highlight-hover {
+            transition: background-color 0.2s ease;
+        }
+
+        .highlight-hover:hover {
+            background-color: transparent;
+        }
+
+        /* ===== LIGHTBOX ===== */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            transition: transform 0.2s ease;
+        }
+
+        #lightboxClose {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+        }
+
+        .zoomable {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRE HAUTE + MENU -->
+    <div class="top-bar">
+        <span class="menu-btn" id="menuBtn">☰</span>
+        <span class="top-bar-title">Menu</span>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+    <a href="apropos.html?from=main">À propos</a>
+    <a href="https://fr.wikipedia.org/wiki/Avion_de_chasse" target="_blank">Wikipédia</a>
+    <a href="bonus.html?from=main">Bonus</a>
+</div>
+
+
+
+
+    <div class="container">
+
+        <!-- TITRE + IMAGES -->
+        <div class="title-wrapper">
+
+            <!-- Macron -->
+            <img src="https://i.f1g.fr/media/cms/1200x630_crop/2025/06/08/d07141685c028cdcf9d4d03298dffa0871cb6327db0818888d843efacbdc92f4.jpg"
+                 class="title-bg-left" alt="Macron">
+
+            
+
+            <!-- Explosion -->
+            <img src="https://static.vecteezy.com/system/resources/previews/046/854/718/non_2x/nuclear-bomb-explosion-isolated-on-transparent-background-free-png.png"
+                 class="title-bg-center" alt="Explosion">
+
+            <!-- Poutine -->
+            <img src="https://image.noelshack.com/fichiers/2022/08/5/1645774657-poutpout.png"
+                 class="title-bg-right" alt="Poutine">
+
+            <h1 class="highlight-hover">TOP 10 DES MEILLEURS AVIONS DE CHASSE MODERNES</h1>
+        </div>
+
+        <br><br><br>
+
+        <p class="highlight-hover" style="font-size:0.95rem; margin-top:25px; text-indent:40px;">
+            Les tensions internationales connaissent une montée progressive depuis plusieurs années, alimentées par la modernisation
+            accélérée des forces armées, la compétition technologique entre grandes puissances et la multiplication des zones
+            d’influence stratégiques.
+        </p>
+
+        <br>
+
+        <p class="highlight-hover" style="font-size:0.95rem; text-indent:40px; margin-bottom:60px;">
+            Ce classement présente les appareils les plus performants du moment, en tenant compte de leur technologie,
+            de leur polyvalence et de leur rôle dans l’équilibre mondial.
+        </p>
+
+        <br><br><br>
+
+        <!-- ====== CLASSEMENT 10 → 6 ====== -->
+
+        <!-- 10 -->
+        <h2><a href="page_des_avions/j20.html">10. Chengdu J-20</a></h2>
+        <p class="highlight-hover">Chasseur furtif chinois conçu pour rivaliser avec les modèles américains modernes.</p>
+        <img class="zoomable"
+             src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/july-26-2017-file-photo-taken-on-nov-1-2016-shows-chinas-news-photo-1578949261.jpg?crop=1.00xw:0.753xh;0,0.0807xh&resize=1200:*"
+             style="width:100%; max-width:900px; margin:20px auto; border-radius:6px;">
+
+
+        <!-- 9 -->
+        <h2><a href="page_des_avions/f15.html">9. F‑15 Eagle</a></h2>
+        <p class="highlight-hover">L’un des chasseurs les plus performants de l’histoire.</p>
+        <img class="zoomable"
+             src="https://upload.wikimedia.org/wikipedia/commons/a/a6/F-15C_Eagle_from_the_44th_Fighter_Squadron_flies_during_a_routine_training_exercise_April_15%2C_2019.jpg"
+             style="width:100%; max-width:900px; margin:20px auto; border-radius:6px;">
+
+
+        <!-- 8 -->
+        <h2><a href="page_des_avions/mig29.html">8. MiG-29 Fulcrum</a></h2>
+        <p class="highlight-hover">Avion russe connu pour sa maniabilité exceptionnelle.</p>
+        <img class="zoomable"
+             src="https://www.avionslegendaires.net/wp-content/uploads/2009/01/Gmig29-index.jpg"
+             style="width:100%; max-width:900px; margin:20px auto; border-radius:6px;">
+
+
+        <!-- 7 -->
+        <h2><a href="page_des_avions/gripen.html">7. JAS 39 Gripen</a></h2>
+        <p class="highlight-hover">Chasseur léger suédois réputé pour son efficacité.</p>
+        <img class="zoomable"
+             src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Saab_JAS_39_Gripen_at_Kaivopuisto_Air_Show%2C_June_2017_%28altered%29_copy.jpg/1280px-Saab_JAS_39_Gripen_at_Kaivopuisto_Air_Show%2C_June_2017_%28altered%29_copy.jpg"
+             style="width:100%; max-width:900px; margin:20px auto; border-radius:6px;">
+
+
+        <!-- 6 -->
+        <h2><a href="page_des_avions/f16.html">6. F-16 Fighting Falcon</a></h2>
+        <p class="highlight-hover">Un des chasseurs les plus répandus au monde.</p>
+        <img class="zoomable"
+             src="https://upload.wikimedia.org/wikipedia/commons/c/c9/F-16_June_2008.jpg"
+             style="width:100%; max-width:900px; margin:20px auto; border-radius:6px;">
+
+
+        <br><br>
+
+        <!-- BOUTON PAGE SUIVANTE -->
+        <p style="text-align:center; margin-top:60px;">
+    <a href="page2/page-2.html"
+       onclick="localStorage.setItem('scrollPosition', window.scrollY);"
+       style="font-size:1.4rem; color:#1d3557; text-decoration:none;">
+        ➤ Tourner la page
+    </a>
+</p>
+
+
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+        <span id="lightboxClose">✖</span>
+        <img id="lightboxImg" src="">
+    </div>
+
+    <script>
+        // MENU LATERAL
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.getElementById("sidebar");
+
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+
+        // LIGHTBOX
+        const images = document.querySelectorAll(".zoomable");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        const closeBtn = document.getElementById("lightboxClose");
+
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                lightbox.style.display = "flex";
+                lightboxImg.src = img.src;
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            lightbox.style.display = "none";
+        });
+
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+        });
+    </script>
+
+
+
+
+<script>
+    if (localStorage.getItem('returnToScroll') === 'yes') {
+        const pos = localStorage.getItem('scrollPosition');
+        if (pos !== null) {
+            window.scrollTo(0, parseInt(pos));
+        }
+        localStorage.removeItem('returnToScroll');
+    }
+</script>
+
+
+</body>
+
+</html>

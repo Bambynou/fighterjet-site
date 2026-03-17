@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>À propos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Police Black Ops One -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+    <!-- Police CFCrackedStone -->
+    <style>
+        @font-face {
+            font-family: "CFCrackedStone";
+            src: url("fonts/CFCrackedStone.ttf") format("truetype");
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f2f5f8;
+            font-family: "Black Ops One", sans-serif;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* ===== BARRE MENU IDENTIQUE ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: #1d3557;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .navbar span {
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -260px;
+            width: 260px;
+            height: 100%;
+            background: #0b1b30;
+            color: white;
+            padding-top: 60px;
+            box-sizing: border-box;
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .sidebar a:hover {
+            background: #1d3557;
+        }
+
+        /* ===== CONTENU ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px 20px 20px;
+        }
+
+        h1 {
+            position: relative;
+            font-family: "CFCrackedStone", sans-serif;
+            font-size: 4rem;
+            text-align: center;
+            margin: 20px 0;
+            color: #1d3557;
+        }
+
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            top: 210%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url("https://www.freeiconspng.com/uploads/donald-trump-transparent-image-23.png");
+            background-repeat: no-repeat;
+            background-size: 420px;
+            width: 420px;
+            height: 300px;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 30px;
+            color: #1d3557;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        a.retour {
+            display: inline-block;
+            margin-top: 40px;
+            font-size: 1.3rem;
+            color: #1d3557;
+            text-decoration: none;
+        }
+
+        a.retour:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== BARRE MENU ===== -->
+    <div class="navbar">
+        <span id="menuBtn">☰</span>
+        <a href="page_principale.html">Menu</a>
+    </div>
+
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar" id="sidebar">
+    <a id="retour" href="#">Revenir au classement</a>
+    <a href="https://fr.wikipedia.org/wiki/Avion_de_chasse" target="_blank">Wikipédia</a>
+    <a href="bonus.html?from=apropos">Bonus</a>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get("from");
+    const retour = document.getElementById("retour");
+
+    if (from === "main") {
+        retour.href = "page_principale.html";
+    } else if (from === "page2") {
+        retour.href = "page2/page-2.html";
+    } else {
+        retour.href = "page_principale.html"; // fallback
+    }
+</script>
+
+
+
+
+    <div class="container">
+
+        <h1><u>A propos</u></h1>
+        <br><br>
+
+        <br><br><br><br><br><br><br>
+
+        <h2>Mon histoire</h2>
+        <p>
+            Depuis que je suis gamin, j’ai toujours été fasciné par les avions de chasse. Leur puissance, leur vitesse,
+            leur design futuriste… tout ça m’a toujours captivé. En grandissant, cette passion ne m’a jamais quitté.
+        </p>
+
+        <p>
+            Ce site est simplement une manière de partager cette passion, de présenter les appareils qui m’ont marqué,
+            et de proposer un classement totalement subjectif basé sur mes goûts personnels.
+        </p>
+
+        <h2>Pourquoi ce site ?</h2>
+        <p>
+            J’ai voulu créer un espace clair, simple et agréable pour découvrir ou redécouvrir les avions de chasse
+            modernes. Chaque fiche est faite avec soin, avec des informations techniques, des images et un style visuel
+            cohérent.
+        </p>
+
+        <h2>Politique de confidentialité</h2>
+        <p>
+            Ce site ne collecte aucune donnée personnelle automatiquement.  
+            Le formulaire présent sur la page 2 sert uniquement à permettre aux visiteurs d’envoyer leur propre
+            classement. Aucune information n’est stockée ou utilisée à des fins commerciales.
+        </p>
+
+        <p>
+            Les images utilisées proviennent de sources publiques ou libres d’accès.  
+            Si une image pose problème, vous pouvez me contacter pour que je la retire.
+        </p>
+
+        <a class="retour" href="page_principale.html">⬅ Retour au début du classement</a>
+
+    </div>
+
+    <script>
+        // OUVERTURE / FERMETURE DU MENU
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.getElementById("sidebar");
+
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+    </script>
+
+</body>
+
+</html>

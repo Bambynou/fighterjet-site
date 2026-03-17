@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Classement des avions de chasse – Page 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Police Black Ops One -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Black Ops One", sans-serif;
+            background: #f2f5f8;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: #1d3557;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            z-index: 1000;
+        }
+
+        .navbar span {
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -260px;
+            width: 260px;
+            height: 100%;
+            background: #0b1b30;
+            color: white;
+            padding-top: 60px;
+            transition: left 0.3s ease;
+            z-index: 999;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px 20px 20px;
+        }
+
+        h2 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h2 a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+
+
+
+        .zoomable {
+            cursor: pointer;
+        }
+
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        #lightboxClose {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRE MENU -->
+    <div class="navbar">
+        <span id="menuBtn">☰</span>
+        <a href="../page_principale.html">Menu</a>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+    <a href="../apropos.html?from=page2">À propos</a>
+    <a href="https://fr.wikipedia.org/wiki/Avion_de_chasse" target="_blank">Wikipédia</a>
+    <a href="../bonus.html?from=page2">Bonus</a>
+</div>
+
+
+
+
+    <div class="container">
+
+        <br><br><br>
+
+       <p style="margin-top:20px;">
+    <a href="../page_principale.html"
+       onclick="localStorage.setItem('returnToScroll', 'yes');"
+       style="font-size:1.3rem; color:black; text-decoration:none;">
+        ⬅ Revenir en arrière
+    </a>
+</p>
+
+
+
+
+        <!-- ===== CLASSEMENT ===== -->
+
+        <h2 style="color:#1d3557;"><a href="../page_des_avions/su57.html" style="color:#1d3557;">5. Sukhoï Su-57</a></h2>
+        <p>Chasseur de 5e génération russe, combinant furtivité et supermanœuvrabilité.</p>
+        <img class="zoomable" src="https://www.vol-avion-chasse.com/wp-content/uploads/2025/03/Sukhoi-SU-57-Felon.jpg" style="width:100%; border-radius:6px;">
+
+        <h2 style="color:#1d3557;"><a href="../page_des_avions/typhoon.html" style="color:#1d3557;">4. Eurofighter Typhoon</a></h2>
+        <p>Connu pour son agilité et ses capacités en combat aérien.</p>
+        <img class="zoomable" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/VVS_100th_IMG_0691_%287727464290%29_%28cropped%29.jpg/330px-VVS_100th_IMG_0691_%287727464290%29_%28cropped%29.jpg" style="width:100%; border-radius:6px;">
+
+        <h2 style="color:#cd7f32;"><a href="../page_des_avions/f35.html" style="color:#cd7f32;">3. F‑35 Lightning II ★</a></h2>
+        <p>Avion de 5e génération multirôle doté de capteurs avancés.</p>
+        <img class="zoomable" src="https://www.vol-avion-chasse.com/wp-content/uploads/2024/09/F-35.jpg" style="width:100%; border-radius:6px;">
+
+        <h2 style="color:#C0C0C0;"><a href="../page_des_avions/rafale.html" style="color:#C0C0C0;">2. Dassault Rafale ★★</a></h2>
+        <p>Avion multirôle français capable d’assurer des missions variées.</p>
+        <img class="zoomable" src="https://images.dassault-aviation.com/f_auto,q_auto,g_center,dpr_auto/wp-auto-upload/1/files/2015/02/W1I0345-1.jpg" style="width:100%; border-radius:6px;">
+
+        <h2 style="color:#FFD700;"><a href="../page_des_avions/f22.html" style="color:#FFD700;">1. F‑22 Raptor ★★★</a></h2>
+        <p>Chasseur furtif américain considéré comme l’un des plus avancés au monde.</p>
+        <img class="zoomable" src="https://upload.wikimedia.org/wikipedia/commons/4/46/Lockheed_Martin_F-22A_Raptor_JSOH.jpg" style="width:100%; border-radius:6px;">
+
+        <br><br>
+
+        <p style="text-align:center;">
+            <a href="../page_principale.html" style="font-size:1.4rem; color:#1d3557; text-decoration:none;">⬅ Retour au début du classement</a>
+        </p>
+
+        <!-- ===== FORMULAIRE ===== -->
+
+        <hr style="margin-top:50px;">
+
+        <h2 style="color:#1d3557;">Vous avez aimé ce classement ?</h2>
+        <p style="font-size:1.2rem;">Envoyez-moi le votre !</p>
+
+        <p id="errorMsg" style="color:red; font-family:Arial; font-size:0.9rem; display:none;">
+            Veuillez remplir tous les champs nécessaires
+        </p>
+
+        <form id="classementForm" action="https://formsubmit.co/mekiriaaron@gmail.com" method="POST">
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://bambynou.github.io/fighterjet-site/page2/merci.html">
+
+
+
+
+            <label style="font-family:Arial;">Votre email :</label>
+            <input type="email" id="email" name="email" style="width:100%; padding:8px; margin-bottom:15px;">
+
+            <label style="font-family:Arial;">Votre pseudonyme :</label>
+            <input type="text" id="pseudo" name="pseudo" style="width:100%; padding:8px; margin-bottom:15px;">
+
+            <label style="font-family:Arial;">Votre Tél (facultatif) :</label>
+            <input type="text" id="tel" name="tel" style="width:100%; padding:8px; margin-bottom:25px;">
+
+            <!-- TABLEAU TOP 10 -->
+            <table style="width:100%; border-collapse:collapse; margin-bottom:20px; font-family:Arial;">
+                <tr>
+                    <th style="border:1px solid #1d3557; padding:10px; background:#e8eef7;">Rang</th>
+                    <th style="border:1px solid #1d3557; padding:10px; background:#e8eef7;">Votre avion</th>
+                </tr>
+
+                <tr><td style="border:1px solid #1d3557; padding:10px;">1</td><td><input type="text" name="r1" style="width:100%; padding:6px;"></td></tr>
+                <tr><td style="border:1px solid #1d3557; padding:10px;">2</td><td><input type="text" name="r2" style="width:100%; padding:6px;"></td></tr>
+                <tr><td style="border:1px solid #1d3557; padding:10px;">3</td><td><input type="text" name="r3" style="width:100%; padding:6px;"></td></tr>
+                <tr><td style="border:1px solid #1d3557; padding:10px;">4</td><td><input type="text" name="r4" style="width:100%; padding:6px;"></td></tr>
+                <tr><td style="border:1px solid #1d3557; padding:10px;">5</td><td><input type="text" name="r5" style="width:100%; padding:6px;"></td></tr>
+                <tr><td style="border:1px solid #1d3557; padding:10px;">6</td><td><input type="text" name="r6" style="width:100%; padding:6px;"></td></tr>
+                <tr><td style="border:1px solid #1d3557; padding:10px;">7</td><td><input type="text" name="r7" style="width:100%; padding:6px;"></td></tr>
+                <tr><td style="border:1px solid #1d3557; padding:10px;">8</td><td><input type="text" name="r8" style="width:100%; padding:6px;"></td></tr>
+                <tr><td style="border:1px solid #1d3557; padding:10px;">9</td><td><input type="text" name="r9" style="width:100%; padding:6px;"></td></tr>
+                <tr><td style="border:1px solid #1d3557; padding:10px;">10</td><td><input type="text" name="r10" style="width:100%; padding:6px;"></td></tr>
+            </table>
+
+            <button type="button" onclick="envoyerClassement()" 
+                style="padding:10px 20px; background:#1d3557; color:white; border:none; cursor:pointer; font-size:1.1rem;">
+                Envoyer
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+        <span id="lightboxClose">✖</span>
+        <img id="lightboxImg" src="">
+    </div>
+
+    <script>
+        // MENU
+        document.getElementById("menuBtn").onclick = () => {
+            document.getElementById("sidebar").classList.toggle("open");
+        };
+
+        // LIGHTBOX
+        const images = document.querySelectorAll(".zoomable");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+
+        images.forEach(img => {
+            img.onclick = () => {
+                lightbox.style.display = "flex";
+                lightboxImg.src = img.src;
+            };
+        });
+
+        document.getElementById("lightboxClose").onclick = () => lightbox.style.display = "none";
+        lightbox.onclick = e => { if (e.target === lightbox) lightbox.style.display = "none"; };
+
+        // VALIDATION
+        function envoyerClassement() {
+            const champs = document.querySelectorAll('#classementForm input[type="text"]');
+            const email = document.getElementById("email");
+            const pseudo = document.getElementById("pseudo");
+            const errorMsg = document.getElementById("errorMsg");
+
+            let vide = false;
+
+            champs.forEach(c => {
+                if (c.name !== "tel" && c.value.trim() === "") {
+                    vide = true;
+                    c.style.border = "2px solid red";
+                } else {
+                    c.style.border = "1px solid #ccc";
+                }
+            });
+
+            if (email.value.trim() === "") {
+                vide = true;
+                email.style.border = "2px solid red";
+            }
+
+            if (pseudo.value.trim() === "") {
+                vide = true;
+                pseudo.style.border = "2px solid red";
+            }
+
+            if (vide) {
+                errorMsg.style.display = "block";
+            } else {
+                errorMsg.style.display = "none";
+                document.getElementById("classementForm").submit();
+            }
+        }
+
+        // ENTRÉE = PASSER AU CHAMP SUIVANT
+        const inputs = document.querySelectorAll('#classementForm input');
+
+        inputs.forEach((input, index) => {
+            input.addEventListener("keydown", function(e) {
+                if (e.key === "Enter") {
+                    e.preventDefault();
+                    if (index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    } else {
+                        envoyerClassement();
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
