@@ -6,7 +6,6 @@
     <title>Bonus – Vidéos YouTube</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Police Black Ops One -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
@@ -98,54 +97,46 @@
 
 <body>
 
-    <!-- BARRE MENU -->
     <div class="navbar">
         <span id="menuBtn">☰</span>
         <a href="https://bambynou.github.io/fighterjet-site/">Menu</a>
     </div>
 
     <div class="sidebar" id="sidebar">
-    <a id="retour" href="#">Revenir au classement</a>
-    <a href="apropos.html?from=bonus">À propos</a>
-    <a href="https://fr.wikipedia.org/wiki/Avion_de_chasse" target="_blank">Wikipédia</a>
-</div>
+        <a id="retour" href="#">Revenir au classement</a>
+        <a href="apropos.html?from=bonus">À propos</a>
+        <a href="https://fr.wikipedia.org/wiki/Avion_de_chasse" target="_blank">Wikipédia</a>
+    </div>
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const from = params.get("from");
-    const retour = document.getElementById("retour");
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const from = params.get("from");
+        const retour = document.getElementById("retour");
 
-    if (from === "main") {
-        retour.href = "https://bambynou.github.io/fighterjet-site/";
-    } else if (from === "page2") {
-        retour.href = "https://bambynou.github.io/fighterjet-site/page2/page-2.html";
-    } else {
-        retour.href = "https://bambynou.github.io/fighterjet-site/";
-    }
-</script>
-
-
-
-
+        if (from === "main") {
+            retour.href = "https://bambynou.github.io/fighterjet-site/";
+        } else if (from === "page2") {
+            retour.href = "https://bambynou.github.io/fighterjet-site/page2/page-2.html";
+        } else {
+            retour.href = "https://bambynou.github.io/fighterjet-site/";
+        }
+    </script>
 
     <div class="container">
 
         <h1>Bonus – Vidéos YouTube</h1>
         <p style="font-size:1.2rem;">Voici quelques vidéos sélectionnées pour vous. Tu peux en ajouter autant que tu veux.</p>
 
-        <!-- VIDEO 1 -->
         <div class="video-box">
             <h2 style="color:#1d3557;">Vidéo 1</h2>
             <iframe src="https://www.youtube.com/embed/gW4uZVK9hWU" allowfullscreen></iframe>
         </div>
 
-        <!-- VIDEO 2 -->
         <div class="video-box">
             <h2 style="color:#1d3557;">Vidéo 2</h2>
             <iframe src="https://www.youtube.com/embed/acoTgXcW8fg" allowfullscreen></iframe>
         </div>
 
-        <!-- VIDEO 3 -->
         <div class="video-box">
             <h2 style="color:#1d3557;">Vidéo 3</h2>
             <iframe src="https://www.youtube.com/embed/pODdJUqyUGg" allowfullscreen></iframe>
@@ -158,7 +149,6 @@
     </div>
 
     <script>
-        // MENU
         document.getElementById("menuBtn").onclick = () => {
             document.getElementById("sidebar").classList.toggle("open");
         };
