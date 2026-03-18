@@ -102,7 +102,6 @@
             color: #1d3557;
         }
 
-        
         h1::after {
             content: "";
             position: absolute;
@@ -153,27 +152,24 @@
 
     <!-- ===== SIDEBAR ===== -->
     <div class="sidebar" id="sidebar">
-    <a id="retour" href="#">Revenir au classement</a>
-    <a href="https://fr.wikipedia.org/wiki/Avion_de_chasse" target="_blank">Wikipédia</a>
-    <a href="bonus.html?from=apropos">Bonus</a>
-</div>
+        <a id="retour" href="#">Revenir au classement</a>
+        <a href="https://fr.wikipedia.org/wiki/Avion_de_chasse" target="_blank">Wikipédia</a>
+        <a href="bonus.html?from=apropos">Bonus</a>
+    </div>
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const from = params.get("from");
-    const retour = document.getElementById("retour");
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const from = params.get("from");
+        const retour = document.getElementById("retour");
 
-    if (from === "main") {
-        retour.href = "/fighterjet-site/";
-    } else if (from === "page2") {
-        retour.href = "/bambynou.github.io/fighterjet-site/page2/page-2.html";
-    } else {
-        retour.href = "/bambynou.github.io/fighterjet-site/";
-    }
-</script>
-
-
-
+        if (from === "main") {
+            retour.href = "https://bambynou.github.io/fighterjet-site/";
+        } else if (from === "page2") {
+            retour.href = "https://bambynou.github.io/fighterjet-site/page2/page-2.html";
+        } else {
+            retour.href = "https://bambynou.github.io/fighterjet-site/";
+        }
+    </script>
 
     <div class="container">
 
@@ -202,13 +198,13 @@
 
         <h2>Politique de confidentialité</h2>
         <p>
-            Ce site ne collecte aucune donnée personnelle automatiquement.  
+            Ce site ne collecte aucune donnée personnelle automatiquement.
             Le formulaire présent sur la page 2 sert uniquement à permettre aux visiteurs d’envoyer leur propre
             classement. Aucune information n’est stockée ou utilisée à des fins commerciales.
         </p>
 
         <p>
-            Les images utilisées proviennent de sources publiques ou libres d’accès.  
+            Les images utilisées proviennent de sources publiques ou libres d’accès.
             Si une image pose problème, vous pouvez me contacter pour que je la retire.
         </p>
 
